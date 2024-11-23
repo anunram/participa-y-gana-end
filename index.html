@@ -22,9 +22,15 @@
                 <label for="phone">Número de celular:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
             </div>
-
-            <!-- Configuración adicional para FormSubmit -->
+            
+            <!-- Deshabilitar reCAPTCHA -->
             <input type="hidden" name="_captcha" value="false">
+
+            <!-- Mensaje de autorrespuesta -->
+            <input type="hidden" name="_autoresponse" value="Gracias por participar en nuestra rifa! Para completar tu compra, dirígete al siguiente enlace: https://wa.link/etjn9d">
+
+            <!-- Redirección a la página de agradecimiento (opcional) -->
+            <input type="hidden" name="_next" value="gracias.html">
 
             <button type="submit">Enviar</button>
         </form>
@@ -32,23 +38,24 @@
     </div>
 
     <script>
-        // Captura el evento submit del formulario
         document.getElementById('raffleForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío automático del formulario
+            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
 
-            // Obtén los valores de los campos del formulario
+            // Obtén los valores de los campos
             const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+            const phone = document.getElementById('phone').value;
 
-            // Muestra el mensaje de agradecimiento
+            // Simula el "envío" de los datos y muestra el mensaje de agradecimiento
             const message = `
-                <p>Gracias por participar, <strong>${name}</strong>!</p>
+                <p>Gracias por participar, <strong>${name} ${surname}</strong>!</p>
                 <p>Para completar tu compra, dirígete al siguiente enlace:</p>
                 <p><a href="https://wa.link/etjn9d" target="_blank">https://wa.link/etjn9d</a></p>
             `;
             document.getElementById('message').innerHTML = message;
 
-            // Envía el formulario a FormSubmit
-            this.submit();
+            // Limpia el formulario
+            document.getElementById('raffleForm').reset();
         });
     </script>
 </body>
