@@ -48,13 +48,13 @@
                 <p><a href="https://wa.link/etjn9d" target="_blank">https://wa.link/etjn9d</a></p>
             `;
 
+            // Oculta el formulario
+            document.getElementById('raffleForm').style.display = 'none';
+
             // Muestra el mensaje de agradecimiento
             const messageDiv = document.getElementById('message');
             messageDiv.innerHTML = message;
             messageDiv.style.display = 'block'; // Asegúrate de que el mensaje sea visible
-
-            // Opcional: Limpiar el formulario después de mostrar el mensaje
-            document.getElementById('raffleForm').reset();
         });
     </script>
 </body>
