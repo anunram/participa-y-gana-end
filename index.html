@@ -23,11 +23,11 @@
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
             </div>
             
-            <button type="submit">Enviar</button>
+            <button type="submit">Participar</button>
         </form>
 
         <!-- Aquí se mostrará el mensaje de agradecimiento -->
-        <div id="message" style="display: none;"></div>
+        <div id="message" style="display: none; padding: 20px; border: 2px solid #4CAF50; margin-top: 20px; background-color: #f4f4f4;"></div>
     </div>
 
     <script>
@@ -39,12 +39,15 @@
             const surname = document.getElementById('surname').value;
             const phone = document.getElementById('phone').value;
 
-            // Simula el "envío" de los datos y muestra el mensaje de agradecimiento
+            // Genera el mensaje de agradecimiento
             const message = `
-                <p>Gracias por participar, <strong>${name} ${surname}</strong>!</p>
-                <p>Para completar tu compra, dirígete al siguiente enlace:</p>
+                <h2>Felicitaciones, ¡estás cerca de ganar!</h2>
+                <p><strong>Nombre:</strong> ${name} ${surname}</p>
+                <p><strong>Número de celular:</strong> ${phone}</p>
+                <p>Para completar tu compra y la elección de tu número de sorteo de forma segura y personalizada, dirígete al siguiente enlace:</p>
                 <p><a href="https://wa.link/etjn9d" target="_blank">https://wa.link/etjn9d</a></p>
             `;
+
             // Muestra el mensaje de agradecimiento
             const messageDiv = document.getElementById('message');
             messageDiv.innerHTML = message;
