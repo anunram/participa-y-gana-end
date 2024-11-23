@@ -30,5 +30,26 @@
         </form>
         <div id="message"></div>
     </div>
+
+    <script>
+        // Captura el evento submit del formulario
+        document.getElementById('raffleForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío automático del formulario
+
+            // Obtén los valores de los campos del formulario
+            const name = document.getElementById('name').value;
+
+            // Muestra el mensaje de agradecimiento
+            const message = `
+                <p>Gracias por participar, <strong>${name}</strong>!</p>
+                <p>Para completar tu compra, dirígete al siguiente enlace:</p>
+                <p><a href="https://wa.link/etjn9d" target="_blank">https://wa.link/etjn9d</a></p>
+            `;
+            document.getElementById('message').innerHTML = message;
+
+            // Envía el formulario a FormSubmit
+            this.submit();
+        });
+    </script>
 </body>
 </html>
