@@ -22,21 +22,17 @@
                 <label for="phone">Número de celular:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
             </div>
-            <div class="form-group">
-                <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" placeholder="Tu email" required>
-            </div>
-            
+
             <!-- Deshabilitar reCAPTCHA -->
             <input type="hidden" name="_captcha" value="false">
 
             <!-- Mensaje de autorrespuesta -->
             <input type="hidden" name="_autoresponse" value="Gracias por participar en nuestra rifa! Para completar tu compra, dirígete al siguiente enlace: https://wa.link/etjn9d">
 
-            <!-- Establecer asunto del correo -->
+            <!-- Asunto del correo -->
             <input type="hidden" name="_subject" value="Nuevo participante en la rifa">
 
-            <!-- Redirigir al mensaje final -->
+            <!-- Redirigir al mensaje final (opcional) -->
             <input type="hidden" name="_next" value="">
 
             <button type="submit">Enviar</button>
