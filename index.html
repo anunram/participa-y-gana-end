@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Participa en la Rifa</h1>
-        <form action="https://formsubmit.co/angelcedenocedeno823@gmail.com" method="POST" id="raffleForm">
+        <form id="raffleForm">
             <div class="form-group">
                 <label for="name">Nombre:</label>
                 <input type="text" id="name" name="name" required>
@@ -22,28 +22,17 @@
                 <label for="phone">Número de celular:</label>
                 <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
             </div>
-
-            <!-- Deshabilitar reCAPTCHA -->
-            <input type="hidden" name="_captcha" value="false">
-
-            <!-- Mensaje de autorrespuesta -->
-            <input type="hidden" name="_autoresponse" value="Gracias por participar en nuestra rifa! Para completar tu compra, dirígete al siguiente enlace: https://wa.link/etjn9d">
-
-            <!-- Asunto del correo -->
-            <input type="hidden" name="_subject" value="Nuevo participante en la rifa">
-
-            <!-- Redirigir al mensaje final (opcional) -->
-            <input type="hidden" name="_next" value="">
-
+            
             <button type="submit">Enviar</button>
         </form>
 
-        <div id="message"></div>
+        <!-- Aquí se mostrará el mensaje de agradecimiento -->
+        <div id="message" style="display: none;"></div>
     </div>
 
     <script>
         document.getElementById('raffleForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+            event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
 
             // Obtén los valores de los campos
             const name = document.getElementById('name').value;
@@ -56,9 +45,12 @@
                 <p>Para completar tu compra, dirígete al siguiente enlace:</p>
                 <p><a href="https://wa.link/etjn9d" target="_blank">https://wa.link/etjn9d</a></p>
             `;
-            document.getElementById('message').innerHTML = message;
+            // Muestra el mensaje de agradecimiento
+            const messageDiv = document.getElementById('message');
+            messageDiv.innerHTML = message;
+            messageDiv.style.display = 'block'; // Asegúrate de que el mensaje sea visible
 
-            // Limpia el formulario
+            // Opcional: Limpiar el formulario después de mostrar el mensaje
             document.getElementById('raffleForm').reset();
         });
     </script>
